@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Cloud Cafe</h1>
+    <div class="content">
+        <form id="add-cafe-form">
+            <input type="text" name="name" placeholder="Cafe name">
+            <input type="text" name="city" placeholder="City name">
+            <button>Add Cafe</button>
+        </form>
+        <ul id="cafe-list"></ul>
+    </div>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDjofIRIFvHxjnVMGGXelEPJEnqdmxBL8A",
+            authDomain: "cafes-56621.firebaseapp.com",
+            databaseURL: "https://cafes-56621-default-rtdb.firebaseio.com",
+            projectId: "cafes-56621",
+            storageBucket: "cafes-56621.appspot.com",
+            messagingSenderId: "369009194593",
+            appId: "1:369009194593:web:91ca38ecf58c9eb2181c20",
+            measurementId: "G-MS4DSZFX4K"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Initialize Firestore
+        const db = firebase.firestore();
+
+        // Removed deprecated settings configuration
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
