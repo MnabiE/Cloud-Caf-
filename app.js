@@ -30,12 +30,27 @@ function renderCafe(doc) {
     })
 }
 
-// Getting data
-db.collection('cafes').get().then((snapshot) => {
-    snapshot.docs.forEach(doc => {
-        renderCafe(doc);
-    });
-});
+// // Getting data
+// db.collection('cafes').where('city', '==', 'Herat city').orderBy('cafes').get().then((snapshot) => {
+//     snapshot.docs.forEach(doc => {
+//         renderCafe(doc);
+//     });
+// });
+
+
+// real-time listner
+db.collection('cafes').orderBy('city').onSnapshot(snapshot => {
+    let changes = snapshot.docChanges();
+    changes.forEach(change => {
+        if(change.type == 'added'){
+            renderCafe(change.doc);
+        } else if (change.type == 'removed'){
+            let li = cafeList.querySelector('[data-id=' + change.doc.id + ']');
+            cafeList.removeChild(li);
+        }
+    })
+})
+
 
 // Saving data
 form.addEventListener('submit', (e) => {
